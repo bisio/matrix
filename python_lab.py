@@ -104,13 +104,13 @@ first_of_tuples_list = [(x,y,z) for x in S for y in S for z in S if (x+y+z==0) a
 
 ## 16: (Task 16) List and set differ
 # Assign to example_L a list such that len(example_L) != len(list(set(example_L)))
-example_L = [...]
+example_L = [1,1]
 
 
 
 ## 17: (Task 17) Odd numbers
 # Replace {...} with a one-line set comprehension over a range of the form range(n)
-odd_num_list_range = {...}
+odd_num_list_range = {i for i in  range(1,100) if i % 2 != 0}
 
 
 
@@ -118,7 +118,7 @@ odd_num_list_range = {...}
 # In the line below, replace ... with an expression that does not include a comprehension.
 # Instead, it should use zip and range.
 # Note: zip() does not return a list. It returns an 'iterator of tuples'
-range_and_zip = ...
+range_and_zip =list( zip(range(0,5),['A','B','C','D','E','F']))
 
 
 
@@ -128,7 +128,7 @@ B = [1, 15, 20]
 # Replace [...] with a one-line comprehension that uses zip together with the variables A and B.
 # The comprehension should evaluate to a list whose ith element is the ith element of
 # A plus the ith element of B.
-list_sum_zip = [...]
+list_sum_zip = [sum(_tuple) for _tuple in zip(A,B)]
 
 
 
@@ -137,7 +137,7 @@ dlist = [{'James':'Sean', 'director':'Terence'}, {'James':'Roger', 'director':'L
 k = 'James'
 # Replace [...] with a one-line comprehension that uses dlist and k
 # and that evaluates to ['Sean','Roger','Pierce']
-value_list = [...]
+value_list = [d[k] for d in dlist]
 
 
 
@@ -145,15 +145,15 @@ value_list = [...]
 dlist = [{'Bilbo':'Ian','Frodo':'Elijah'},{'Bilbo':'Martin','Thorin':'Richard'}]
 k = 'Bilbo'
 #Replace [...] with a one-line comprehension 
-value_list_modified_1 = [...] # <-- Use the same expression here
+value_list_modified_1 = [d.get(k,'NOT PRESENT') for d in dlist] # <-- Use the same expression here
 k = 'Frodo'
-value_list_modified_2 = [...] # <-- as you do here
+value_list_modified_2 = [ d.get(k,'NOT PRESENT') for d in dlist] # <-- as you do here
 
 
 
 ## 22: (Task 22) A dictionary mapping integers to their squares
 # Replace {...} with a one-line dictionary comprehension
-square_dict = {...}
+square_dict = { k:v for (k,v) in    [(x,x**2) for x in range(0,100)]  }
 
 
 
