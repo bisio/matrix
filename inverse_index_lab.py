@@ -37,6 +37,17 @@ def makeInverseIndex(strlist):
     True
     """
     pass
+    
+    index = {}
+    for (i, doc) in enumerate(strlist):
+        for word in doc.split():
+            entry = index.get(word,None)
+            if entry is None:
+                index[word]={i}
+            else:
+                index[word].add(i)
+    return index
+
 
 
 
@@ -53,8 +64,10 @@ def orSearch(inverseIndex, query):
     >>> orSearch(idx, ['Johann', 'Carl'])
     {0, 2, 3, 4, 5}
     """
-    pass
-
+    result = set()
+    for word in query:
+        result = result | inverseIndex.get(word,set())
+    return result
 
 
 ## 4: (Task 4) And Search
@@ -70,5 +83,12 @@ def andSearch(inverseIndex, query):
     >>> andSearch(idx, ['Johann', 'Bach'])
     {0, 4}
     """
-    pass
-
+    result = set()
+    for word in query:
+        _set = inverseIndex.get(word,None)
+        if _set is not None:
+            if not result:
+                result = _set
+            else:
+                result = result & _set 
+    return result
