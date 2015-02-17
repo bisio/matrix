@@ -39,8 +39,12 @@ def create_voting_dict(strlist):
     The lists for each senator should preserve the order listed in voting data.
     In case you're feeling clever, this can be done in one line.
     """
-    pass
-
+    #for _list in strlist:
+        #items = _list.strip().split()
+        #name = items[0]
+        #votes = items[3:]
+        
+    return {items.split()[0]:list(map(int,items.strip().split()[3:])) for items  in strlist} 
 
 
 ## 2: (Task 2.12.2) Policy Compare
@@ -117,7 +121,7 @@ def find_average_similarity(sen, sen_set, voting_dict):
         >>> find_average_similarity('Klein', {'Fox-Epstein','Ravella'}, vd)
         -0.5
     """
-    return ...
+    #return ...
 
 most_average_Democrat = ... # give the last name (or code that computes the last name)
 
